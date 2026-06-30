@@ -9,8 +9,8 @@ products = [
 ]
 
 class Product(BaseModel):
-    name: str = Field(min_length=1)
-    price: float = Field(gt=0)
+    name: str = Field(...,min_length=1)
+    price: float = Field(...,gt=0)
 
 @app.post("/products", status_code=status.HTTP_201_CREATED)
 def create_product(product: Product):
